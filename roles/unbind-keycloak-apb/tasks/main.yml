@@ -41,6 +41,6 @@
 # Delete client secret
 - name: Delete keycloak-{{ _apb_bind_creds.clientName }} secret
   k8s_v1_secret:
-    name: "{{ keycloak_secret_name }}-{{ _apb_bind_creds.id | lower }}"
+    name: "{{ keycloak_secret_name }}-{{ _apb_bind_creds.clientId | lower }}"
     namespace: "{{ namespace }}"
     state: absent

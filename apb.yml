@@ -52,4 +52,8 @@ plans:
       required: True
       title: Keycloak client type
       type: enum
+<<<<<<< HEAD
       enum: ['bearer', 'public']
+=======
+      enum: ['bearer', 'public']
+>>>>>>> 5700c0f... change bind params to comply with standard bind params schema
