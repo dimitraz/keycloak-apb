@@ -10,7 +10,15 @@ keycloak_route_name: keycloak
 keycloak_configmap_name: keycloak
 keycloak_secret_name: keycloak
 postgres_secret_name: keycloak-postgres
+<<<<<<< HEAD
 keycloak_pv_claim_name: keycloak-metrics
 postgres_pv_claim_name: postgres
 keycloak_admin_realm_name: master
 encode_asb_binding: yes
+=======
+keycloak_admin_realm_name: master
+
+# Annotations
+keycloak_uri_annotation: binding.aerogear.org/keycloak-uri-href
+keycloak_realm_annotation: binding.aerogear.org/keycloak-realm
+>>>>>>> d640211... Annotate mobile client on bind, remove annotations on unbind
