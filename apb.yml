@@ -7,7 +7,7 @@ tags:
   - mobile-service
   - mobile-client-enabled
 metadata:
-  displayName: Keycloak
+  displayName: Keycloak test
   imageUrl: "https://pbs.twimg.com/profile_images/702119821979344897/oAC05cEB_400x400.png"
   documentationUrl: "http://www.keycloak.org/documentation.html"
   providerDisplayName: "Red Hat, Inc."
@@ -41,10 +41,13 @@ plans:
       default: admin
       type: string
       title: Keycloak admin password
+      docurl: "Keycloak `admin` password. A list of full options maybe be found [here](http://google.com)."
     - name: CUSTOM_REALM_NAME
       required: False
       type: string
       title: Name of the Keycloak realm (defaults to current namespace)
+      description: This is the actual description parameter. Lorem ipsum dolor sit amet.
+      docurl: "Here is a [test link](#). Password for the created MongoDB user. This value will be generated if not specified. Password for the created `MongoDB` user. This value will be generated if not specified."
     - name: USE_SHARED_SERVICE
       required: False
       type: bool
@@ -53,6 +56,7 @@ plans:
       required: False
       type: string
       title: URL of the shared service
+      docurl: "```test``` paragraph ## heading 2 ### heading 3 ###heading 3"
     bind_parameters:
     - name: CLIENT_ID
       required: True
