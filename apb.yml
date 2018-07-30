@@ -64,3 +64,27 @@ plans:
       type: enum
       enum: ['bearer', 'public']
       default: public
+  - name: operated
+    description: Deploy the Keycloak Operator
+    free: True
+    parameters: 
+      - name: SHARED_SERVICE_NAME
+        required: True
+        type: string
+        title: Shared Service Name
+        description: A name for the Managed Keycloak Service
+      - name: MAX_SLICES
+        required: True
+        type: number
+        title: Maximum number of Keycloak slices
+        description: The maximum number of shared slices that can be provisioned from a single shared service instance
+      - name: MAX_INSTANCES
+        required: True
+        type: number
+        title: Maximum number of Keycloak instances
+        description: The maximum number of new instances that should be provisioned by the Keycloak operator 
+      - name: MIN_INSTANCES
+        required: True
+        type: number
+        title: Minimum number of Keycloak instances
+        description: The minimum number of shared service instances that should be provisioned by the Keycloak operator

@@ -14,3 +14,6 @@ keycloak_pv_claim_name: keycloak-metrics
 postgres_pv_claim_name: postgres
 keycloak_admin_realm_name: master
 encode_asb_binding: yes
+
+# Operator constants
+operator_name: keycloak-operator

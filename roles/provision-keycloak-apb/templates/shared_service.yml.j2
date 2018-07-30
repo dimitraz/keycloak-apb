@@ -1,0 +1,9 @@
+apiVersion: aerogear.org/v1alpha1
+kind: SharedService
+metadata: 
+  name: {{ SHARED_SERVICE_NAME }}
+spec:
+  service_type: keycloak
+  slices_per_istance: {{ MAX_SLICES }}
+  maximum_instances: {{ MAX_INSTANCES }}
+  minimum_instances: {{ MIN_INSTANCES }}

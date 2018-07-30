@@ -1,0 +1,35 @@
+# Deploy the Keycloak Operator 
+- name: Create operator template
+  template:
+    src: operator_deployment.yml.j2
+    dest: /tmp/operator_deployment.yaml
+
+- name: Create operator deployment
+  shell: oc create -f /tmp/operator_deployment.yaml -n {{ namespace }}
+
+- name: Delete operator template file
+  file: path=/tmp/operator_deployment.yaml state=absent
+
+# # test
+# - set_fact:
+#     service_account: test
+
+# - name: Create Service Account
+#   k8s_v1_service_account:
+#     name: '{{ service_account }}'
+#     namespace: '{{ namespace }}'
+
+# - name: test
+#   shell: 'oc policy add-role-to-user admin system:serviceaccount:{{ namespace }}:{{ service_account }} -n {{ namespace }}'
+
+# Create the Shared Service CR
+- name: Create custom resource template
+  template:
+    src: shared_service.yml.j2
+    dest: /tmp/shared_service.yaml
+
+- name: Create custom resource
+  shell: oc create -f /tmp/shared_service.yaml -n {{ namespace }}
+
+- name: Delete custom resource template file
+  file: path=/tmp/shared_service.yaml state=absent

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ operator_name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: {{ operator_name }}
+  template:
+    metadata:
+      labels:
+        name: {{ operator_name }}
+    spec:
+      containers:
+        - name: {{ operator_name }}
+          image: dimitraz/keycloak-operator:1.0.2
+          ports:
+          - containerPort: 60000
+            name: metrics
+          command:
+          - keycloak-operator
+          imagePullPolicy: Always
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: OPERATOR_NAME
+              value: {{ operator_name }}
